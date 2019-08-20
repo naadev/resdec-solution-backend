@@ -11,6 +11,9 @@ RUN pip install --upgrade pip && \
     pip uninstall -y numpy  && \
     pip install numpy
 COPY . .
+RUN mkdir /usr/src/app/log 
 RUN python /usr/src/app/manage.py migrate
+RUN pip install --no-cache-dir rasa
+RUN rasa init --no-prompt
 ENTRYPOINT [ "python","/usr/src/app/manage.py" ]
 
