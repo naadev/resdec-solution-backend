@@ -1,3 +1,8 @@
+
+entities:
+  - number_of_components
+  - tag
+
 intents:
   - greet
   - goodbye
@@ -5,27 +10,36 @@ intents:
   - deny
   - mood_great
   - mood_unhappy
+  - help
+  - cold_start
+  - feature_recommendation
+  - rating_recommendation
 
-actions:
-- utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
-- utter_goodbye
+slots:
+  number_of_components:
+     type: float
+     min_value: 1.0
+     max_value: 20.0
+  tag:
+     type: text
+
 
 templates:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great carry on!"
-
+    - text: "Hello, I'm Rick, your Recommender bot"
+    - text: "Hi, Rick here"
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
+  utter_help:
+    - text: "I can help you to choose wordpress components. Would you like to get started?"
+  utter_indicator:
+    - text: "You can choose between following options: Cold Start, feature based recommendations or rating based recommendations"
+  utter_number_of_recommendations:
+    - text: "How many components do you want to display?"
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_help
+  - utter_indicator
+  - utter_number_of_recommendations
