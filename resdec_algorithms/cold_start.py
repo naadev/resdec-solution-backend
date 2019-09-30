@@ -23,8 +23,6 @@ class ColdStart:
         # Iterating csv file
         for data in arr_data_csv:
             print(("data[0].strip() is "+ str(data[0]).strip()))
-            for theKey in dict_items_values.keys():
-                print(theKey)
             if str(data[0]).strip() in list(dict_items_values.keys()):
                 # Storing the counter
                 dict_items_values[str(data[0]).strip()][0] += 1
