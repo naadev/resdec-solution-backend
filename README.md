@@ -1,3 +1,5 @@
+Requires an environment Python 3.7
+
 After cloning, install requirements:
 ### 'pip install -r requirements.txt'
 This will install Resdec needed packages.
