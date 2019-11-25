@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 
 class ColdStart:
@@ -12,14 +13,14 @@ class ColdStart:
         print(("calculating cold start... Items to Evaluate: " + str(self.dict_items.__len__())))
         print(("calculating cold start... File Rating: " + self.file_rating_path))
         print(("calculating cold start... Number of recommendations: " + str(self.number_recommendations)))
+        print(("file rating path:")+self.file_rating_path)
 
         arr_data_csv = np.genfromtxt(self.file_rating_path, delimiter=self.delimiter, dtype=None)
         # Dictionary with items and values
         dict_items_values = {}
         for key, value in self.dict_items.items():
             # Dictionary of items, to store counter and sum
-            dict_items_values[value] = [0, 0.00]
-
+            dict_items_values[value.decode("utf-8")] = [0, 0.00]
         # Iterating csv file
         for data in arr_data_csv:
             if str(data[0]).strip() in list(dict_items_values.keys()):
